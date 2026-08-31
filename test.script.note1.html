@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>My Playground</title>
+        <style>
+            /* Стили для страницы и кнопки */
+            body {
+                background-color: BLACK;
+                margin: 0;
+                padding: 20px;
+                overflow: hidden; /* Прячет полосы прокрутки, если кнопка прыгнет на край */
+            }
+
+            #greeting {
+                color: #FFB6C1;
+                font-family: sans-serif;
+            }
+
+            #btn {
+                position: absolute; /* Позволяет кнопке свободно летать по экрану */
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                border: none;
+                border-radius: 5px;
+                background-color: #FFB6C1;
+                color: BLACK;
+                font-weight: bold;
+                transition: all 0.1s ease; /* Делает побег кнопки плавным */
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1 id="greeting">smille ;)</h1>
+        
+        <button id="btn">Click me</button>
+
+        <script>
+            // Логика убегания кнопки
+            const btn = document.getElementById('btn');
+
+            btn.addEventListener('mouseover', function() {
+                // Вычисляем случайные координаты с учетом размеров экрана и кнопки
+                const x = Math.random() * (window.innerWidth - btn.clientWidth);
+                const y = Math.random() * (window.innerHeight - btn.clientHeight);
+
+                // Присваиваем новые координаты
+                btn.style.left = x + 'px';
+                btn.style.top = y + 'px';
+            });
+        </script>
+      
+    </body>
+</html>
